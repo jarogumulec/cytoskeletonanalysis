@@ -44,7 +44,7 @@ for (roiIndex = 0; roiIndex < nROIs; roiIndex++) {
     // Save the measurement results. We'll build a filename based on the slice label:
     sliceLabel = getInfo("slice.label");  // e.g. "MaxProj_001"
     baseName   = replace(sliceLabel, "MaxProj_", "");  // e.g. "001"
-    measureFileName = outputFolder + baseName + "_cell_" + roiIndex + "_measurements.csv";
+    measureFileName = outputFolder + baseName + "_cropped_cell_" + roiIndex + "_measurements.csv";
     saveAs("Results", measureFileName);
 
     // ---------------------------------------------------------------------

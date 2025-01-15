@@ -106,7 +106,4 @@ We adapted and extended these principles for cytoskeletal SIM data.
 
 ---
 
-## License
-
-*(Consider including an open-source license, such as MIT, GPL, or BSD. For example:)*
 
