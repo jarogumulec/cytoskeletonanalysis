@@ -3,8 +3,15 @@
 // =========================================================================
 
 // Folder paths
-inputFolder  = "z:\\999992-nanobiomed\\Elyra SuperResolution\\GACR PB\\Vinculin_TPM2_F-act\\StrF-WF-StdF\\";
+// 1) Prompt user for the input folder
+inputFolder = getDirectory("Choose the folder with your CroppedCells .tif files");
+// If the user cancels or no folder is selected, getDirectory() returns an empty string
+if (inputFolder == "") {
+    exit("No folder selected. Macro aborted.");
+}
+
 outputFolder = inputFolder + "CroppedCells\\";
+
 
 // Load the Max Projections image (Troponin_Max_projs.tif)
 maxProjsFile = inputFolder + "Troponin_Max_projs.tif";

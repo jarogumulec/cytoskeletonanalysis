@@ -2,8 +2,12 @@
 // Manual Focal Adhesion Measurements Macro
 //-----------------------------------------------------
 
-// 1) Define folder path
-inputFolder = "z:\\999992-nanobiomed\\Elyra SuperResolution\\GACR PB\\Vinculin_TPM2_F-act\\StrF-WF-StdF\\CroppedCells\\";
+// 1) Prompt user for the input folder
+inputFolder = getDirectory("Choose the folder with your CroppedCells .tif files");
+// If the user cancels or no folder is selected, getDirectory() returns an empty string
+if (inputFolder == "") {
+    exit("No folder selected. Macro aborted.");
+}
 
 // 2) Get list of files in that folder
 list = getFileList(inputFolder);
