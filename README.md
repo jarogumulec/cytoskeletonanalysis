@@ -12,7 +12,10 @@ These ImageJ macros help you format and isolate single-cell regions from a set o
    - [Purpose](#purpose-1)  
    - [Usage](#usage-1)  
    - [Important Notes](#important-notes)  
-4. [Acknowledgments](#acknowledgments)  
+4. [Macro 3: Cytoskelet_focaladhesion_manual_analyser.ijm](#macro-3-cytoskelet_focaladhesion_manual_analyserijm)  
+   - [Purpose](#purpose-2)  
+   - [Usage](#usage-2)  
+5. [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -31,6 +34,11 @@ These ImageJ macros help you format and isolate single-cell regions from a set o
    - Automatically saves both:
      - A measurements file (`.csv`) containing shape descriptors (area, circularity, etc.).  
      - A cropped hyperstack (`.tif`) for each ROI.
+
+3. **Cytoskelet_focaladhesion_manual_analyser.ijm**  
+   - Assumes you have a 2- or 3-channel image (e.g., the **cropped cells** from the second macro) where **channel 1** is focal adhesions.  
+   - Lets you **manually annotate** each focal adhesion in the ROI Manager, measuring their area, intensity, and shape descriptors.  
+   - Saves a results CSV (`_FAs.csv`) and a corresponding set of ROIs (`_FAs_RoiSet.zip`).
 
 These macros streamline preparing single-cell images for various downstream analyses (e.g., cytoskeletal studies, morphological quantifications, etc.).
 
@@ -95,6 +103,36 @@ Splits a large 3-channel SIM hyperstack into **single-cell** hyperstack `.tif` f
 
 ---
 
+## Macro 3: Cytoskelet_focaladhesion_manual_analyser.ijm
+
+### Purpose
+
+Provides a **manual** way to identify and measure focal adhesions (FAs) within each single-cell image (e.g., the result of Macro 2). You can:
+
+- Load a **cropped** cell image that has at least one channel dedicated to focal adhesions.  
+- Optionally remove unneeded channels (e.g., keep FA channel + actin channel).  
+- **Manually draw** ROI(s) around each focal adhesion in the ROI Manager.  
+- Measure area, intensity, shape descriptors, etc., for each FA.  
+- Save the resulting measurements to a CSV and the ROIs to a `.zip`.
+
+### Usage
+
+1. **Prepare** a folder containing your **cropped** single-cell `.tif` files from Macro 2.  
+2. **Open ImageJ/Fiji** and select **`Plugins > Macros > Run...`**.  
+3. **Choose** `Cytoskelet_focaladhesion_manual_analyser.ijm`.  
+4. The macro will:
+   - Automatically open each `.tif` in the specified folder.  
+   - **Max-project** it (if necessary).  
+   - **Remove unwanted channels** (e.g., keep channel 1 for FAs, channel 2 for actin).  
+   - **Enhance contrast** (on the FA channel).  
+   - **Wait** for you to **manually draw** ROIs around each FA.  
+   - Measure each ROI, saving a CSV named after the original file (e.g. `filename_FAs.csv`) plus a ROI set `.zip` (e.g. `filename_FAs_RoiSet.zip`).  
+   - Close the images and proceed to the next file.
+
+5. **Open** the CSV files in Excel or other data-analysis tools to see the area, mean intensity, bounding rectangle, shape descriptors, etc. of each annotated focal adhesion.
+
+---
+
 ## Acknowledgments
 
 These macros were **inspired by** the ImageJ macros provided in the [MitoGraphTools repository](https://github.com/vianamp/MitoGraphTools), particularly the ideas behind:
@@ -103,7 +141,3 @@ These macros were **inspired by** the ImageJ macros provided in the [MitoGraphTo
 - `CropCells.ijm` for efficiently cropping individual ROIs to single-cell z-stacks.
 
 We adapted and extended these principles for cytoskeletal SIM data.
-
----
-
-
