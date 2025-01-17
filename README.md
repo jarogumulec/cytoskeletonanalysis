@@ -15,7 +15,8 @@ These ImageJ macros help you format and isolate single-cell regions from a set o
 4. [Macro 3: Cytoskelet_focaladhesion_manual_analyser.ijm](#macro-3-cytoskelet_focaladhesion_manual_analyserijm)  
    - [Purpose](#purpose-2)  
    - [Usage](#usage-2)  
-5. [Acknowledgments](#acknowledgments)
+5. R script for analsis
+6. [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -130,6 +131,12 @@ Provides a **manual** way to identify and measure focal adhesions (FAs) within e
    - Close the images and proceed to the next file.
 
 5. **Open** the CSV files in Excel or other data-analysis tools to see the area, mean intensity, bounding rectangle, shape descriptors, etc. of each annotated focal adhesion.
+
+---
+
+## Results plotting
+
+cell_and_FA_analysis.R putts all cell metric together with focal adhesion metrics and creates boxplots and simple correlation matrix
 
 ---
 
