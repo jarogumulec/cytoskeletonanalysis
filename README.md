@@ -16,7 +16,8 @@ These ImageJ macros help you format and isolate single-cell regions from a set o
    - [Purpose](#purpose-2)  
    - [Usage](#usage-2)  
 5. R script for analsis
-6. [Acknowledgments](#acknowledgments)
+6. Colocalisation analysis
+7. [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -139,6 +140,23 @@ Provides a **manual** way to identify and measure focal adhesions (FAs) within e
 cell_and_FA_analysis.R putts all cell metric together with focal adhesion metrics and creates boxplots and simple correlation matrix
 
 ---
+
+
+## Colocalisation analysis
+
+needed for analysis
+- Colocation plugin https://imagej.net/plugins/jacop : download the JACoP_.jar file
+- Cytoskelet_colocalisation_preprocess.ijm - macro that prepares the images
+
+Procedure:
+1. open the macro in Fiji
+2. open the first image and click Run on the macro
+3. in the JACoP colocaliser window set the first three: Pearson, k1,k2 and M1, M2 (just do it once, they will stay there)
+4. in Treshold set so that only cells are red
+5. click the analysis and then save the text output somehow systematically
+
+---
+
 
 ## Acknowledgments
 
